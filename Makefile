@@ -38,9 +38,11 @@ $(BIN_DIR)/unit_tests: $(patsubst $(BUILD_DIR)/main.o, $(BUILD_DIR)/unit_tests.o
 	$(CC) $(patsubst $(BUILD_DIR)/main.o, $(BUILD_DIR)/unit_tests.o, $(O_FILES)) $(BUILD_DIR)/$(LIB_FILES) -o $(BIN_DIR)/unit_tests
 
 setup:
+	$(shell mkdir $(BIN_DIR)/bin $(BIN_DIR)/build $(BIN_DIR)/docs $(BIN_DIR)/lib)
 	$(ROOT_DIR)/scripts/get_libraries.sh
 
 teardown:
+	rm -rf $(BIN_DIR)/bin $(BIN_DIR)/build $(BIN_DIR)/docs $(BIN_DIR)/lib
 	$(ROOT_DIR)/scripts/purge_libraries.sh
 
 clean:
@@ -49,7 +51,6 @@ clean:
 	clear
 
 run:
-	mkdir $(BIN_DIR)/bin $(BIN_DIR)/build $(BIN_DIR)/docs $(BIN_DIR)/lib
 	$(BIN_DIR)/main
 
 run_tests:
