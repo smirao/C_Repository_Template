@@ -49,6 +49,7 @@ clean:
 	clear
 
 run:
+	mkdir $(BIN_DIR)/bin $(BIN_DIR)/build $(BIN_DIR)/docs $(BIN_DIR)/lib
 	$(BIN_DIR)/main
 
 run_tests:
