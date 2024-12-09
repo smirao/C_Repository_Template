@@ -32,8 +32,6 @@ $(BUILD_DIR)/unity.o: $(LIB_DIR)/Unity/src/unity.c
 $(BIN_DIR)/main: $(O_FILES)
 	$(CC) $(O_FILES) -o $(BIN_DIR)/main
 
-$(info $(CC) $(patsubst $(BUILD_DIR)/main.o, $(BUILD_DIR)/unit_tests.o, $(O_FILES)) $(BUILD_DIR)/$(LIB_FILES) -o $(BIN_DIR)/unit_tests)
-
 $(BIN_DIR)/unit_tests: $(patsubst $(BUILD_DIR)/main.o, $(BUILD_DIR)/unit_tests.o, $(O_FILES)) $(BUILD_DIR)/$(LIB_FILES)
 	$(CC) $(patsubst $(BUILD_DIR)/main.o, $(BUILD_DIR)/unit_tests.o, $(O_FILES)) $(BUILD_DIR)/$(LIB_FILES) -o $(BIN_DIR)/unit_tests
 
